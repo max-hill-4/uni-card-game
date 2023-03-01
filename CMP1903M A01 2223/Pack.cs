@@ -14,8 +14,13 @@ namespace CMP1903M_A01_2223
         {
             //Initialise the card pack here
             Card[] cards = new Card[52];
+            
+            foreach (Card i in cards)
+            {
+                Console.WriteLine(i);
+            }
         }
-
+        /*
         public static bool shuffleCardPack(int typeOfShuffle)
         {
             //Shuffles the pack based on the type of shuffle
@@ -30,5 +35,6 @@ namespace CMP1903M_A01_2223
         {
             //Deals the number of cards specified by 'amount'
         }
+        */
     }
 }
