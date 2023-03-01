@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 // MaxH's program.
 namespace CMP1903M_A01_2223
 {
-    class Program
+    class Program11
     {
         static void Main(string[] args)
         {
