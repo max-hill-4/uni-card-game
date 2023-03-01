@@ -11,15 +11,18 @@ namespace CMP1903M_A01_2223
         List<Card> pack;
         public Pack()
         {
-            //Initialise the card pack here
+            //Creates a array of size of 
             Card[] cards = new Card[52];
-            string[] suits = { "Hearts", "Spades", "Clubs", "Diamonds"};
+            //string[] suits = { "Hearts", "Spades", "Clubs", "Diamonds"};
 
             for (int i = 0; i < 52; i++)
             {
                 cards[i] = new Card();
-                cards[i].CardValue = i;
-                Console.WriteLine(cards[i].CardValue);
+                cards[i].CardValue = i % 13;
+                cards[i].Suit = (i / 13);
+                Console.WriteLine(cards[i].Suit);
+
+
                 
             }
         }
