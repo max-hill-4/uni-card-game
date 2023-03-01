@@ -9,15 +9,18 @@ namespace CMP1903M_A01_2223
     class Pack
     {
         List<Card> pack;
-
         public Pack()
         {
             //Initialise the card pack here
             Card[] cards = new Card[52];
-            
-            foreach (Card i in cards)
+            string[] suits = { "Hearts", "Spades", "Clubs", "Diamonds"};
+
+            for (int i = 0; i < 52; i++)
             {
-                Console.WriteLine(i);
+                cards[i] = new Card();
+                cards[i].CardValue = i;
+                Console.WriteLine(cards[i].CardValue);
+                
             }
         }
         /*

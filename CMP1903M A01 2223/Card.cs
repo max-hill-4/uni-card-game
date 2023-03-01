@@ -15,7 +15,7 @@ namespace CMP1903M_A01_2223
         //The 'set' methods for these properties could have some validation
         private int cardvalue;
         private int suit;
-        public int cardValue 
+        public int CardValue 
         {
             // TD: Variable names.
             get { return cardvalue; }
