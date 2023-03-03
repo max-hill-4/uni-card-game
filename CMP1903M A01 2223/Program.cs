@@ -12,6 +12,8 @@ namespace CMP1903M_A01_2223
         static void Main(string[] args)
         {
             Pack Obj1 = new Pack();
+            Obj1.shuffleCardPack(1);
+            Obj1.deal();
         }
     }
 }

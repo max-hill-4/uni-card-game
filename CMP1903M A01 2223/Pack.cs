@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,12 +17,13 @@ namespace CMP1903M_A01_2223
             //string[] suits = { "Hearts", "Spades", "Clubs", "Diamonds"};
             pack = new List<Card>();
             for (int i = 0; i < 52; i++)
+
             {
                 Card newCard = new Card();
-                newCard.CardValue = i % 13;
-                newCard.Suit = (i / 13);
+                newCard.CardValue = (i % 13) + 1;
+                newCard.Suit = (i / 13) + 1;
                 pack.Add(newCard);
-                Console.WriteLine(newCard.CardValue);
+                //Console.WriteLine(newCard.CardValue);
 
 
             }
@@ -35,12 +37,13 @@ namespace CMP1903M_A01_2223
             {
                 Random rand = new Random();
                 
-                for (int i = 52; i >= 0; i--)
+                for (int i = 51; i >= 0; i--)
                 {
                     int randomNumber = rand.Next(0, i);
                     (pack[i], pack[randomNumber]) = (pack[randomNumber], pack[i]);
                 }
                 return true;
+                
             }
             if (typeOfShuffle == 2)
             {
@@ -55,16 +58,23 @@ namespace CMP1903M_A01_2223
                 return false;
             }
         }
-        /*
-        public static Card deal()
+
+        public Card deal()
         {
             //Deals one card
+            Card topCard = pack[pack.Count - 1];
+            pack.RemoveAt(pack.Count -1);
+            Console.WriteLine(topCard.CardValue);
+            return topCard;
 
         }
-        public static List<Card> dealCard(int amount)
+        public List<Card> dealCard(int amount)
         {
             //Deals the number of cards specified by 'amount'
+            List<Card> topCards = pack.GetRange(amount, pack.Count - 1);
+            pack.RemoveRange(amount,pack.Count - 1);
+            return topCards;
         }
-        */
+        
     }
 }
