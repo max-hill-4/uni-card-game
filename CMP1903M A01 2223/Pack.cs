@@ -10,28 +10,52 @@ namespace CMP1903M_A01_2223
     {
         List<Card> pack;
         public Pack()
-        {
-            //Creates a array of size of 
-            Card[] cards = new Card[52];
-            //string[] suits = { "Hearts", "Spades", "Clubs", "Diamonds"};
 
+        {
+
+            //string[] suits = { "Hearts", "Spades", "Clubs", "Diamonds"};
+            pack = new List<Card>();
             for (int i = 0; i < 52; i++)
             {
-                cards[i] = new Card();
-                cards[i].CardValue = i % 13;
-                cards[i].Suit = (i / 13);
-                Console.WriteLine(cards[i].Suit);
+                Card newCard = new Card();
+                newCard.CardValue = i % 13;
+                newCard.Suit = (i / 13);
+                pack.Add(newCard);
+                Console.WriteLine(newCard.CardValue);
 
 
+            }
+        }
+
+        
+        public bool shuffleCardPack(int typeOfShuffle)
+        {
+            //Shuffles the pack based on the type of shuffle
+            if (typeOfShuffle == 1)
+            {
+                Random rand = new Random();
                 
+                for (int i = 52; i >= 0; i--)
+                {
+                    int randomNumber = rand.Next(0, i);
+                    (pack[i], pack[randomNumber]) = (pack[randomNumber], pack[i]);
+                }
+                return true;
+            }
+            if (typeOfShuffle == 2)
+            {
+                return true;
+            }
+            if (typeOfShuffle == 3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         /*
-        public static bool shuffleCardPack(int typeOfShuffle)
-        {
-            //Shuffles the pack based on the type of shuffle
-
-        }
         public static Card deal()
         {
             //Deals one card
