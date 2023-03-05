@@ -47,6 +47,12 @@ namespace CMP1903M_A01_2223
             }
             if (typeOfShuffle == 2)
             {
+                int halfDeckSize = pack.Count / 2;
+                Random rand = new Random();
+                List<Card> firstHalf = pack.GetRange(0, halfDeckSize);
+                List<Card> secondHalf = pack.GetRange(0, halfDeckSize);
+
+
                 return true;
             }
             if (typeOfShuffle == 3)
