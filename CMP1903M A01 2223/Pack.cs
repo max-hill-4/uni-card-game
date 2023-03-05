@@ -21,9 +21,6 @@ namespace CMP1903M_A01_2223
                 cards[i].CardValue = i % 13;
                 cards[i].Suit = (i / 13);
                 Console.WriteLine(cards[i].Suit);
-
-
-                
             }
         }
         /*
