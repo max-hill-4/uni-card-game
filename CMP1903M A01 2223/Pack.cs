@@ -51,8 +51,27 @@ namespace CMP1903M_A01_2223
                 Random rand = new Random();
                 List<Card> firstHalf = pack.GetRange(0, halfDeckSize);
                 List<Card> secondHalf = pack.GetRange(0, halfDeckSize);
+                List<Card> newPack = new List<Card>();
 
+                while(firstHalf.Count > 0 && secondHalf.Count > 0)
+                {
+                    // Pick 1 half and put into the new deck
+                    if (rand.NextDouble() >= 0.5)
+                    {
+                        newPack.Add(firstHalf[firstHalf.Count - 1]);
+                        firstHalf.RemoveAt(firstHalf.Count - 1);
+                    }
 
+                    else
+                    {
+                        newPack.Add(secondHalf[firstHalf.Count - 1]);
+                        firstHalf.RemoveAt(secondHalf.Count - 1);
+                    }
+                }
+                // Put remaining cards into the pack
+                newPack.AddRange(firstHalf);
+                newPack.AddRange(secondHalf);
+                pack = newPack;
                 return true;
             }
             if (typeOfShuffle == 3)
