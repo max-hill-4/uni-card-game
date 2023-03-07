@@ -56,7 +56,7 @@ namespace CMP1903M_A01_2223
 
                 while(firstHalf.Count > 0 && secondHalf.Count > 0)
                 {
-                    // Pick 1 half and put into the new deck
+                    // Pick 1  of the halves and put into the new deck
                     if (rand.NextDouble() >= 0.5)
                     {
                         newPack.Add(firstHalf[firstHalf.Count - 1]);

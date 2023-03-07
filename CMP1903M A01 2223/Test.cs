@@ -18,7 +18,6 @@ namespace CMP1903M_A01_2223
                 Console.WriteLine(i);
                 if (testObject.shuffleCardPack(i) == false)
 				{
-                    Console.WriteLine("shufflecard returned false");
                     return false;
 				}
 				

@@ -11,7 +11,7 @@ namespace CMP1903M_A01_2223
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("started");
+            //Testing methods using the Test class.
             Test Obj1 = new Test();
             Obj1.testShuffles();
             
