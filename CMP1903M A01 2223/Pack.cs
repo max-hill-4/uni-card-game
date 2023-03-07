@@ -35,6 +35,7 @@ namespace CMP1903M_A01_2223
             //Shuffles the pack based on the type of shuffle
             if (typeOfShuffle == 1)
             {
+                Console.WriteLine("shuffle 1 is called");
                 Random rand = new Random();
                 
                 for (int i = 51; i >= 0; i--)
@@ -64,7 +65,7 @@ namespace CMP1903M_A01_2223
 
                     else
                     {
-                        newPack.Add(secondHalf[firstHalf.Count - 1]);
+                        newPack.Add(secondHalf[secondHalf.Count - 1]);
                         firstHalf.RemoveAt(secondHalf.Count - 1);
                     }
                 }
