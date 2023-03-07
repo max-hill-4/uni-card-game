@@ -16,7 +16,7 @@ namespace CMP1903M_A01_2223
             //Create a new dynamic list to hold pack
             pack = new List<Card>();
             //Create 52 cards
-            for (int i = 0; i < 52; i++)
+            for (int i = 0; i <= 52; i++)
 
             {
                 Card newCard = new Card();
@@ -26,7 +26,6 @@ namespace CMP1903M_A01_2223
                 newCard.Suit = (i / 13) + 1;
                 //Add the card to the list
                 pack.Add(newCard);
-
 
             }
         }
@@ -93,15 +92,14 @@ namespace CMP1903M_A01_2223
             //Deals one card
             Card topCard = pack[pack.Count - 1];
             pack.RemoveAt(pack.Count -1);
-            Console.WriteLine(topCard.CardValue);
             return topCard;
 
         }
         public List<Card> dealCard(int amount)
         {
             //Deals the number of cards specified by 'amount'
-            List<Card> topCards = pack.GetRange(amount, pack.Count - 1);
-            pack.RemoveRange(amount,pack.Count - 1);
+            List<Card> topCards = pack.GetRange(pack.Count - amount, amount);
+            pack.RemoveRange(pack.Count - amount, amount);
             return topCards;
         }
         
