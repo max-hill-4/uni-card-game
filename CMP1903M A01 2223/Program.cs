@@ -11,10 +11,12 @@ namespace CMP1903M_A01_2223
     {
         static void Main(string[] args)
         {
-            //Testing methods using the Test class.
+            //Created a pack object
             Test Obj1 = new Test();
+            //Tests shuffle methods
             Obj1.testShuffles();
-            
+            //Testing dealing methods
+
         }
     }
 }

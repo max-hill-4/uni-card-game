@@ -13,17 +13,19 @@ namespace CMP1903M_A01_2223
         public Pack()
 
         {
-
-            //string[] suits = { "Hearts", "Spades", "Clubs", "Diamonds"};
+            //Create a new dynamic list to hold pack
             pack = new List<Card>();
+            //Create 52 cards
             for (int i = 0; i < 52; i++)
 
             {
                 Card newCard = new Card();
+                //Integer value of 1-13
                 newCard.CardValue = (i % 13) + 1;
+                //Ineger value of 1-4
                 newCard.Suit = (i / 13) + 1;
+                //Add the card to the list
                 pack.Add(newCard);
-                //Console.WriteLine(newCard.CardValue);
 
 
             }
@@ -35,11 +37,11 @@ namespace CMP1903M_A01_2223
             //Shuffles the pack based on the type of shuffle
             if (typeOfShuffle == 1)
             {
-                Console.WriteLine("shuffle 1 is called");
                 Random rand = new Random();
                 
                 for (int i = 51; i >= 0; i--)
                 {
+                    //Swap card with a random card before it
                     int randomNumber = rand.Next(0, i);
                     (pack[i], pack[randomNumber]) = (pack[randomNumber], pack[i]);
                 }
@@ -58,6 +60,7 @@ namespace CMP1903M_A01_2223
                 {
                     // Pick 1  of the halves and put into the new deck
                     if (rand.NextDouble() >= 0.5)
+                    //Depending on half 
                     {
                         newPack.Add(firstHalf[firstHalf.Count - 1]);
                         firstHalf.RemoveAt(firstHalf.Count - 1);
