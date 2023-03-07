@@ -13,13 +13,12 @@ namespace CMP1903M_A01_2223
         {
             //Created a pack object
             Test Obj1 = new Test();
-            //Tests shuffle methods
+            //Testing methods
             if (!Obj1.testShuffles() ^ !Obj1.testDeals())
             {
                 Console.WriteLine("Testing has failed");
             };
             
-            //Testing dealing methods
             
         }
     }
