@@ -66,7 +66,7 @@ namespace CMP1903M_A01_2223
                     else
                     {
                         newPack.Add(secondHalf[secondHalf.Count - 1]);
-                        firstHalf.RemoveAt(secondHalf.Count - 1);
+                        secondHalf.RemoveAt(secondHalf.Count - 1);
                     }
                 }
                 // Put remaining cards into the pack
