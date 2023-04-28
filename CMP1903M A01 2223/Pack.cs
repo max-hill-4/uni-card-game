@@ -30,71 +30,38 @@ namespace CMP1903M_A01_2223
             }
         }
 
-        
-        public bool shuffleCardPack(int typeOfShuffle)
+
+        public bool shuffleCardPack()
         {
-            //Shuffles the pack based on the type of shuffle
-            if (typeOfShuffle == 1)
-            {
-                Random rand = new Random();
-                
-                for (int i = 51; i >= 0; i--)
-                {
-                    //Swap card with a random card before it
-                    int randomNumber = rand.Next(0, i);
-                    (pack[i], pack[randomNumber]) = (pack[randomNumber], pack[i]);
-                }
-                return true;
-                
-            }
-            if (typeOfShuffle == 2)
-            {
-                int halfDeckSize = pack.Count / 2;
-                Random rand = new Random();
-                List<Card> firstHalf = pack.GetRange(0, halfDeckSize);
-                List<Card> secondHalf = pack.GetRange(0, halfDeckSize);
-                List<Card> newPack = new List<Card>();
+            int halfDeckSize = pack.Count / 2;
+            Random rand = new Random();
+            List<Card> firstHalf = pack.GetRange(0, halfDeckSize);
+            List<Card> secondHalf = pack.GetRange(0, halfDeckSize);
+            List<Card> newPack = new List<Card>();
 
-                while(firstHalf.Count > 0 && secondHalf.Count > 0)
+            while (firstHalf.Count > 0 && secondHalf.Count > 0)
+            {
+                // Pick 1  of the halves and put into the new deck
+                if (rand.NextDouble() >= 0.5)
+                //Depending on half 
                 {
-                    // Pick 1  of the halves and put into the new deck
-                    if (rand.NextDouble() >= 0.5)
-                    //Depending on half 
-                    {
-                        newPack.Add(firstHalf[firstHalf.Count - 1]);
-                        firstHalf.RemoveAt(firstHalf.Count - 1);
-                    }
-
-                    else
-                    {
-                        newPack.Add(secondHalf[secondHalf.Count - 1]);
-                        secondHalf.RemoveAt(secondHalf.Count - 1);
-                    }
+                    newPack.Add(firstHalf[firstHalf.Count - 1]);
+                    firstHalf.RemoveAt(firstHalf.Count - 1);
                 }
-                // Put remaining cards into the pack
-                newPack.AddRange(firstHalf);
-                newPack.AddRange(secondHalf);
-                pack = newPack;
-                return true;
+
+                else
+                {
+                    newPack.Add(secondHalf[secondHalf.Count - 1]);
+                    secondHalf.RemoveAt(secondHalf.Count - 1);
+                }
             }
-            if (typeOfShuffle == 3)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            // Put remaining cards into the pack
+            newPack.AddRange(firstHalf);
+            newPack.AddRange(secondHalf);
+            pack = newPack;
+            return true;
         }
 
-        public Card deal()
-        {
-            //Deals one card
-            Card topCard = pack[pack.Count - 1];
-            pack.RemoveAt(pack.Count -1);
-            return topCard;
-
-        }
         public List<Card> dealCard(int amount)
         {
             //Deals the number of cards specified by 'amount'
@@ -102,6 +69,14 @@ namespace CMP1903M_A01_2223
             pack.RemoveRange(pack.Count - amount, amount);
             return topCards;
         }
-        
+        public string[] Math(int firstNumber, int suitValue, int secondNumber)
+        {
+            string[] ans = new string[1];
+            if (suitValue == 1){ ans = {} }
+            if (suitValue == 2) { }
+            if (suitValue == 3) { }
+            if (suitValue == 4) { }
+            return ans;
+        }
     }
 }
