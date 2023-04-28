@@ -12,12 +12,11 @@ namespace CMP1903M_A01_2223
         static void Main(string[] args)
         {
             //Created a pack object
-            Test Obj1 = new Test();
-            //Testing methods
-            if (!Obj1.testShuffles() ^ !Obj1.testDeals())
-            {
-                Console.WriteLine("Testing has failed");
-            };
+            Console.WriteLine("Welcome to MaxH's Card Application! \r\n ");
+            Console.WriteLine("Choose functionality \r\n " +
+                                    "1. Instructions \r\n " +
+                                    "2. Deal 3 Cards \r\n " +
+                                    "3. Quit");
             
             
         }
