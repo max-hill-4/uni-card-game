@@ -63,7 +63,8 @@ namespace CMP1903M_A01_2223
             Console.WriteLine(firstNumber + firstOperator + secondNumber + secondOperator + thirdNumber);
             Console.WriteLine("Your answer: ");
             int userinput = Convert.ToInt32(Console.ReadLine());
-            if (userinput == answer) { Console.WriteLine("You are correct!"); }
+            if (userinput == answer) { 
+                Console.WriteLine("You are correct!"); }
             else { Console.WriteLine("You are incorrect!, the answer was " + answer); }
             dealAgain();
         }
