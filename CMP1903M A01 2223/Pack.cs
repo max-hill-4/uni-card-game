@@ -69,14 +69,7 @@ namespace CMP1903M_A01_2223
             pack.RemoveRange(pack.Count - amount, amount);
             return topCards;
         }
-        public string[] Math(int firstNumber, int suitValue, int secondNumber)
-        {
-            string[] ans = new string[1];
-            if (suitValue == 1){ ans = {} }
-            if (suitValue == 2) { }
-            if (suitValue == 3) { }
-            if (suitValue == 4) { }
-            return ans;
-        }
+
+        
     }
 }
