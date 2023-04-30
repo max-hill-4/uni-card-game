@@ -31,35 +31,17 @@ namespace CMP1903M_A01_2223
         }
 
 
-        public bool shuffleCardPack()
+        public void shuffleCardPack()
         {
-            int halfDeckSize = pack.Count / 2;
             Random rand = new Random();
-            List<Card> firstHalf = pack.GetRange(0, halfDeckSize);
-            List<Card> secondHalf = pack.GetRange(0, halfDeckSize);
-            List<Card> newPack = new List<Card>();
 
-            while (firstHalf.Count > 0 && secondHalf.Count > 0)
+            for (int i = 51; i >= 0; i--)
             {
-                // Pick 1  of the halves and put into the new deck
-                if (rand.NextDouble() >= 0.5)
-                //Depending on half 
-                {
-                    newPack.Add(firstHalf[firstHalf.Count - 1]);
-                    firstHalf.RemoveAt(firstHalf.Count - 1);
-                }
-
-                else
-                {
-                    newPack.Add(secondHalf[secondHalf.Count - 1]);
-                    secondHalf.RemoveAt(secondHalf.Count - 1);
-                }
+                //Swap card with a random card before it
+                int randomNumber = rand.Next(0, i);
+                (pack[i], pack[randomNumber]) = (pack[randomNumber], pack[i]);
             }
-            // Put remaining cards into the pack
-            newPack.AddRange(firstHalf);
-            newPack.AddRange(secondHalf);
-            pack = newPack;
-            return true;
+
         }
 
         public List<Card> dealCard(int amount)

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,9 +30,8 @@ namespace CMP1903M_A01_2223
             // so need to instantiate game!
 
             int firstNumber = hand[0].CardValue;
-            int intOperator = hand[1].Suit;
+            string strOperator = oper(hand[1].Suit);
             int secondNumber = hand[2].CardValue;
-            string strOperator = oper(intOperator);
             int answer = Math(firstNumber, strOperator, secondNumber);
 
 
@@ -38,11 +39,33 @@ namespace CMP1903M_A01_2223
             Console.WriteLine("Your answer: ");
             int userinput = Convert.ToInt32(Console.ReadLine());
             if (userinput == answer) { Console.WriteLine("You are correct!"); }
+            else { Console.WriteLine("You are incorrect!, the answer was " + answer); }
+            dealAgain();
 
         }
         public void fiveCard()
         {
+            List<Card> hand = new List<Card>();
+            hand = pack.dealCard(5);
+
+
+            int firstNumber = hand[0].CardValue;
+            string firstOperator = oper(hand[1].Suit);
+  
+            int secondNumber = hand[2].CardValue;
+
+            string secondOperator = oper(hand[3].Suit);
+            int thirdNumber = hand[4].CardValue;
             
+            int firstThree = Math(firstNumber, firstOperator, secondNumber);
+            int answer = Math(firstThree, secondOperator, thirdNumber);
+
+            Console.WriteLine(firstNumber + firstOperator + secondNumber + secondOperator + thirdNumber);
+            Console.WriteLine("Your answer: ");
+            int userinput = Convert.ToInt32(Console.ReadLine());
+            if (userinput == answer) { Console.WriteLine("You are correct!"); }
+            else { Console.WriteLine("You are incorrect!, the answer was " + answer); }
+            dealAgain();
         }
         private static string oper(int suitValue)
         {
@@ -61,5 +84,24 @@ namespace CMP1903M_A01_2223
             return 0;
         }
 
+        private void dealAgain()
+        {
+            Console.WriteLine("Choose functionality \r\n " +
+                                    "1. Deal 3 \r\n " +
+                                    "2. Deal 5 \r\n " +
+                                    "3. Back to the menu");
+            int userinput = Convert.ToInt32(Console.ReadLine());
+            switch (userinput)
+            {
+                case 1:
+                   threeCard();
+                    break;
+                case 2:
+                    fiveCard();
+                    break;
+                case 3:
+                    break;
+            }
+        }
     }
 }
