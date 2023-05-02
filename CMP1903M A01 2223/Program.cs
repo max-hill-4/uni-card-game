@@ -31,10 +31,12 @@ namespace CMP1903M_A01_2223
                         Console.WriteLine("Write instructions here \r\n ");
                         break;
                     case 2:
-                        game.threeCard();
+                        ThreeCard threeCard = new ThreeCard();
+                        threeCard.Play();
                         break;
                     case 3:
-                        game.fiveCard();
+                        FiveCard fiveCard = new FiveCard();
+                        fiveCard.Play();
                         break;
                     case 4:
                         System.Environment.Exit(0);
