@@ -13,6 +13,7 @@ namespace CMP1903M_A01_2223
         {
             //Created a pack object
             Console.WriteLine("Welcome to MaxH's Card Application! \r\n ");
+            int menu = 0;
             while (true)
             {
                 Console.WriteLine("Choose functionality \r\n " +
@@ -20,11 +21,16 @@ namespace CMP1903M_A01_2223
                                         "2. Deal 3 Cards \r\n " +
                                         "3. Deal 5 Cards \r\n " +
                                         "4. Quit");
-
-                int menu = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    menu = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                 
+                }
                 //Created a switch statement to allow the user to choose what they want to do
 
-                Game game = new Game();
                 switch (menu)
                 {
                     case 1:
@@ -41,6 +47,9 @@ namespace CMP1903M_A01_2223
                     case 4:
                         System.Environment.Exit(0);
                         break;
+                    default:
+                        Console.WriteLine("Invalid Input");
+                            break;
                 }
             }
         }

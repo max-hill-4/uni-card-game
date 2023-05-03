@@ -36,17 +36,25 @@ namespace CMP1903M_A01_2223
         protected void dealAgain(int answer)
         {
             Console.WriteLine("Your answer: ");
-            int userinput = Convert.ToInt32(Console.ReadLine());
-            if (userinput == answer)
-            {
-                Console.WriteLine("You are correct!");
+            try {
+                int userinput = Convert.ToInt32(Console.ReadLine());
+                if (userinput == answer)
+                {
+                    Console.WriteLine("You are correct!");
+                }
+                else { Console.WriteLine("You are incorrect!, the answer was " + answer);}
             }
+            catch
+            {
+                Console.WriteLine("Invalid input enter a number!, the answer was " + answer);
+            }
+            
 
-            else { Console.WriteLine("You are incorrect!, the answer was " + answer); }
+            
 
         }
     }
-        class FiveCard : Game
+    class FiveCard : Game
         {
             public void Play()
             {
@@ -69,7 +77,7 @@ namespace CMP1903M_A01_2223
                 dealAgain(answer);
             }
         }
-        class ThreeCard : Game
+    class ThreeCard : Game
         {
             public void Play()
             {
